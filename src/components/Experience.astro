@@ -1,0 +1,33 @@
+---
+import ExperienceItem from '../components/ExperienceItem.astro'
+
+const EXPERIENCE = [
+   {
+        version: 'Flowbite Library v1.0.0',
+        relased: 'Released on December 2, 2021',
+        description: 'Get started with dozens of web components and interactive elements.'
+   },
+   {
+        version: 'Flowbite Library v1.0.0',
+        relased: 'Released on December 2, 2021',
+        description: 'Get started with dozens of web components and interactive elements.'
+   },
+   {
+        version: 'Flowbite Library v1.0.0',
+        relased: 'Released on December 2, 2021',
+        description: 'Get started with dozens of web components and interactive elements.'
+   }
+
+]
+---
+
+<ol class="items-center sm:flex py-20">
+    {
+        EXPERIENCE.map (experiencie => (
+            <li class="relative mb-6 sm:mb-0">
+                <ExperienceItem {... experiencie} />  
+            </li>
+        ))
+    }
+</ol>
+

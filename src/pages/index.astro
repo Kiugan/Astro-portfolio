@@ -1,41 +1,67 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 import Header from '../components/Header.astro';
 import Badge from '../components/Badge.astro';
+import Container from '../components/Container.astro';
+import Experience from '../components/Experience.astro';
+import Proyects from '../components/Proyects.astro';
+import Footer from '../components/Footer.astro';
 import SocialPill from '../components/icons/SocialPill.astro';
 import LinkedInIcon from '../components/icons/LinkedIn.astro';
 import GitHubIcon from '../components/icons/GitHub.astro';
 import MailIcon from '../components/icons/Mail.astro';
+import SchoolIcon from '../components/icons/School.astro';
+import CodeIcon from '../components/icons/CodeIcon.astro';
 ---
 
 <Layout title="PortFolio de Kiugan - Desarollador y Programador web"
 		description="Contrata a kiugan para que forme parte de tus desarrollos y aporte sus conocimientos a tus proyectos.">
-	<main>
-		<section class="w-full mx-auto lg:w-[740px] py-44">
-			<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
+	<main id="top" class="px-4">
+		<Container id="sobre-mi" class="py-44 pb-24">
+			<img
+				class="rounded-full w-12 h-12 mb-4"
+				src="../../public/photo.jpg" 
+				alt="kiugan photo"
+			/>
+			<h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
 				Hey, soy Kiugan <a href="https://www.linkedin.com/in/kiugan/" target="_blank" rel="noopener" class="flex justify-center items-center pt-4">
 				<Badge>Disponible para trabajar</Badge>
 				</a>
 			</h1>
-			<h2 class="text-2xl opacity-80 text-wrap">
-				+15 Años de experiencia, Desarollador web y creador de contenido. De Barcelona, España. Especializado en cosas
+			<h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700]">
+				+15 Años de experiencia, <span class="text-yellow-200">Desarollador Web</span> y creador de contenido. De Barcelona, España. Especializado en cosas
 			</h2>
 
-			<nav class="flex gap-x-4 mt-8">
+			<nav class="flex gap-4 mt-8 flex-wrap">
 				<SocialPill href="https://www.linkedin.com/in/kiugan/">
-					<LinkedInIcon class="size-6"/>
+					<LinkedInIcon class="size-4 md:size-6"/>
 					LinkedIn 
 				</SocialPill>
 				<SocialPill href="https://github.com/Kiugan">
-					<GitHubIcon class="size-6"/>
+					<GitHubIcon class="size-4 md:size-6"/>
 					GitHub 
 				</SocialPill>
-				<SocialPill href="https://www.linkedin.com/in/kiugan/">
-					<MailIcon class="size-6"/>
+				<SocialPill href="mailto:tec.medinaeze@gmail.com">
+					<MailIcon class="size-4 md:size-6"/>
 					tec.medinaeze@gmail.com 
 				</SocialPill>
 			</nav>
-		</section>
+		</Container>
+
+		<Container id="estudios">
+			<h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+				<SchoolIcon class="size-9"/>
+					Trayectoria como estudiante
+			</h2>
+			<Experience/>
+		</Container>
+		<Container id="estudios">
+			<h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+				<CodeIcon class="size-9"/>
+					Proyectos
+			</h2>
+			<Proyects/>
+		</Container>
+		<Footer />
 	</main>
 </Layout>
