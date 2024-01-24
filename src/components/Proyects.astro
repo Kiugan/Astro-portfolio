@@ -1,26 +1,47 @@
 ---
+import NextJS from "./icons/NextJS.astro";
+import Tailwind from "./icons/Tailwind.astro";
+
+const TAGS = {
+    NEXT: {
+        name:"Next.js",
+        class: "bg-black text-white",
+        icon: NextJS,
+    },
+    TAILWIND: {
+        name:"Tailwind CSS",
+        class: "bg-[#003159] text-white",
+        icon: Tailwind,
+    },
+}
 const PROJECTS = [
     {
-        title: 'Project 1',
-        description: '',
+        title: 'SVGL - A beautiful library with SVG logos',
+        description: 'Created from scratchj with Next.js and Tailwind CSS. It´s a library with SVG logos from the most popular brands. Optimized for SEO and performance.',
         link : '#',
         gitHub: '#',
-        image: 'https://via.placeholder.com/300x200',
-        tags: ['HTML','CSS','JavaScript']
+        image: '/public/proyects/proyect1.webp',
+        tags: [TAGS.NEXT, TAGS.TAILWIND]
     }
 ]
 ---
 
 {
-    PROJECTS.map(proyect =>(
+    PROJECTS.map(({image, title, description, tags}) =>(
         <article>
-            <h3>{proyect.title}</h3>
-            <p>{proyect.description}</p>
-            <ul>
-                {proyect.tags.map(tag =>(
-                    <li>{tag}</li>
+            <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+            <p class="text-lg mb-4 text-pretty	">{description}</p>
+            <ul class="flex gap-x-2 flex-row mb-2">
+                {tags.map(tag =>(
+                    <li>
+                        <spam class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-2 px-2`}>
+                        <tag.icon class="size-4"/>
+                        {tag.name}
+                        </spam>
+                   </li>
                 ))}
             </ul>
+            <img class="rounded shadow-2xl shadow-white/10" src={image} alt=`Captura de pantalla del proyecto ${image}`/>
         </article>
     ))
 }
